@@ -7,7 +7,7 @@ import lxml.html
 URL = "https://explorer.ipco.app/daily-stats"
 
 if __name__ == "__main__":
-    with urlopen(URL) as r:
+    with urlopen(URL, timeout=30) as r:
         raw = r.read()
     tree = lxml.html.fromstring(raw)
     tables = tree.findall(".//table")
